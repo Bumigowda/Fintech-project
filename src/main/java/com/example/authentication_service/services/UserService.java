@@ -39,6 +39,7 @@ public class UserService {
         String password = user.getPassword();
         String userRoles = user.getUserRoles();
 
+
         if (firstName == null || firstName.isEmpty()) {
             throw new BadRequestException("First name can not be empty or null");
         }
@@ -58,6 +59,8 @@ public class UserService {
         if (userRoles == null || userRoles.isEmpty()) {
             throw new BadRequestException("userRoles can not be empty or null");
         }
+
+
 
         if (this.userRepository.existsByUserIdOrUsernameOrEmailAddress(null, username, emailAddress)) {
             throw new BadRequestException("User with these details already exists");
